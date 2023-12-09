@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Mada:wght@300&family=Montserrat:wght@100&family=Nunito+Sans:opsz,wght@6..12,200&family=Oswald:wght@200&family=Roboto+Condensed:wght@200&family=Scheherazade+New&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    
+
+    <header>
+        <h1>test</h1>
+        <nav>
+            <ul>
+                
+                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="javascript:void(0);" onclick="togglePanel()"><i class="fa fa-info-circle"></i> About</a></li>
+                <li><a href="education.html"><i class="fa fa-book"></i> Learn more</a></li>
+                
+                <li><a href="javascript:void(0);" onclick="openMap()"><i class="fa fa-map"></i> Map</a></li>
+                <li><a href="javascript:void(0);" onclick="toggleRecommendationsModal()"><i class="fas fa-lightbulb"></i>Your Recommendations</a></li>
+                <div class="search-container">
+                    <label for="searchInput">Search Products:</label>
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button onclick="searchProducts()">Search</button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+                
+
+            </ul>
+        </nav>
+        <div id="aboutPanel" class="slide-panel">
+            <h2>About Us</h2>
+            <p>
+                Your Gateway to Ethical and Local Shopping
+            </p>
+            <button onclick="togglePanel()">Close</button>
+        </div>
+        <div id="recommendationsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleRecommendationsModal()">&times;</span>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4egbYckvoZntm6Rmh9MmTVB4aDTFHuAWvF_tL99TKd-Ezgg/viewform?embedded=true" width="640" height="1093" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        
+        
+    </header>
+    
+    <section class="category-list">
+        <!-- Cooking Essentials -->
+        <div class="category-item" onclick="showProducts('Cooking essentials')">
+            <img src="cooking.png" alt="Cooking Essentials">
+            <h2>Cooking Essentials</h2>
+            <div class="arabic-translation">أساسيات الطهي</div>
+        </div>
+    
+        <!-- Cosmetics -->
+        <div class="category-item" onclick="showProducts('Cosmetics')">
+            <img src="cosmetics.png" alt="Cosmetics">
+            <h2>Cosmetics</h2>
+            <div class="arabic-translation">مستحضرات التجميل</div>
+        </div>
+    
+        <!-- Baby Essentials -->
+        <div class="category-item" onclick="showProducts('Baby Essentials')">
+            <img src="baby essentials.png" alt="Baby Essentials">
+            <h2>Baby Essentials</h2>
+            <div class="arabic-translation">أساسيات الأطفال</div>
+        </div>
+    
+        <!-- Beverages -->
+        <div class="category-item" onclick="showProducts('Beverages')">
+            <img src="bev.png" alt="Beverages">
+            <h2>Beverages</h2>
+            <div class="arabic-translation">المشروبات</div>
+        </div>
+    
+        <!-- Clothing Brands -->
+        <div class="category-item" onclick="showProducts('Clothing Brands')">
+            <img src="clothes.png" alt="Clothing Brands">
+            <h2>Clothing Brands</h2>
+            <div class="arabic-translation"> الملابس</div>
+        </div>
+    
+        <!-- Coffee & Tea -->
+        <div class="category-item" onclick="showProducts('Coffee & Tea')">
+            <img src="coffeetea.png" alt="Coffee & Tea">
+            <h2>Coffee & Tea</h2>
+            <div class="arabic-translation">القهوة والشاي</div>
+        </div>
+    
+        <!-- Household items -->
+        <div class="category-item" onclick="showProducts('Household items')">
+            <img src="household.png" alt="Household Items">
+            <h2>Household Items</h2>
+            <div class="arabic-translation">المستلزمات المنزلية</div>
+        </div>
+    
+        <!-- Pharmaceuticals -->
+        <div class="category-item" onclick="showProducts('Pharmaceuticals')">
+            <img src="pharma.png" alt="Pharmaceuticals">
+            <h2>Pharmaceuticals</h2>
+            <div class="arabic-translation">الأدوية</div>
+        </div>
+    
+        <!-- Personal Grooming -->
+        <div class="category-item" onclick="showProducts('Personal Grooming')">
+            <img src="grooming.png" alt="Personal Grooming">
+            <h2>Personal Grooming</h2>
+            <div class="arabic-translation">العناية الشخصية</div>
+        </div>
+    
+        <!-- Snacks -->
+        <div class="category-item" onclick="showProducts('Snacks')">
+            <img src="snackss.png" alt="Snacks">
+            <h2>Snacks</h2>
+            <div class="arabic-translation"> التسالي</div>
+        </div>
+    
+        <!-- Water -->
+        <div class="category-item" onclick="showProducts('Water')">
+            <img src="water.png" alt="Water">
+            <h2>Water</h2>
+            <div class="arabic-translation">الماء</div>
+        </div>
+    
+        <!-- Restaurants -->
+        <div class="category-item" onclick="showProducts('Restaurants')">
+            <img src="rest.png" alt="Restaurants">
+            <h2>Restaurants</h2>
+            <div class="arabic-translation">المطاعم</div>
+        </div>
+    
+        <!-- Miscellaneous -->
+        <div class="category-item" onclick="showProducts('miscellaneous')">
+            <img src="misc.png" alt="Miscellaneous">
+            <h2>Miscellaneous</h2>
+            <div class="arabic-translation">متنوعات</div>
+        </div>
+    </section>
+    
+    <section id="products" class="products">
+        
+    </section>
+    <script src="script.js"></script>
+    <script>
+        function openMap() {
+            window.open('map.html', '_blank');
+        }
+    </script>
+    
+</body>
+</html>
